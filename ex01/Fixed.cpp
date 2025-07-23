@@ -19,7 +19,7 @@ Fixed::Fixed(const float value) {
     _value = roundf(value * 256);
 };
 
-Fixed &Fixed::operator=(const Fixed &other) {
+Fixed& Fixed::operator=(const Fixed &other) {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         this->_value = other.getRawBits();
