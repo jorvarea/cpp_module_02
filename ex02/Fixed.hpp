@@ -41,9 +41,5 @@ class Fixed {
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
-Fixed& max(Fixed& x1, Fixed& x2);
-const Fixed& max(const Fixed& x1, const Fixed& x2);
-Fixed& min(Fixed& x1, Fixed& x2);
-const Fixed& min(const Fixed& x1, const Fixed& x2);
 
 #endif
