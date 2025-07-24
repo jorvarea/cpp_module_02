@@ -10,6 +10,7 @@ class Fixed {
         Fixed(const Fixed& fixed);
         Fixed(const int value);
         Fixed(const float value);
+        Fixed(const double value);
         Fixed& operator=(const Fixed& other);
         bool operator>(const Fixed& other) const;
         bool operator<(const Fixed& other) const;
@@ -35,6 +36,7 @@ class Fixed {
         static Fixed& min(Fixed& x1, Fixed& x2);
         static const Fixed& max(const Fixed& x1, const Fixed& x2);
         static const Fixed& min(const Fixed& x1, const Fixed& x2);
+        static Fixed abs(const Fixed& x);
     private:
         int _value;
         static const int _fracBits = 8;

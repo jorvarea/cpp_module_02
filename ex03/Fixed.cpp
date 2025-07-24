@@ -15,6 +15,10 @@ Fixed::Fixed(const float value) {
     _value = roundf(value * (1 << _fracBits));
 };
 
+Fixed::Fixed(const double value) {
+    _value = roundf(value * (1 << _fracBits));
+};
+
 Fixed& Fixed::operator=(const Fixed &other) {
     if (this != &other)
         this->_value = other.getRawBits();
@@ -140,4 +144,11 @@ const Fixed& Fixed::min(const Fixed& x1, const Fixed& x2) {
         return x1;
     else
         return x2;
+}
+
+Fixed Fixed::abs(const Fixed& x) {
+    if (x.getRawBits() < 0)
+        return Fixed(-x.toFloat());
+    else
+        return x;
 }
