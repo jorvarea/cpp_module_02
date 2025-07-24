@@ -11,12 +11,12 @@ Fixed::Fixed(const Fixed &other) {
 
 Fixed::Fixed(const int value) {
     std::cout << "Int constructor called" << std::endl;
-    _value = value << 8;
+    _value = value << _fracBits;
 };
 
 Fixed::Fixed(const float value) {
     std::cout << "Float constructor called" << std::endl;
-    _value = roundf(value * 256);
+    _value = roundf(value * pow(2, _fracBits));
 };
 
 Fixed& Fixed::operator=(const Fixed &other) {
@@ -39,11 +39,11 @@ void Fixed::setRawBits(int const raw) {
 }
 
 float Fixed::toFloat(void) const {
-    return _value / 256.0;
+    return 1.0 * _value / pow(2, _fracBits);
 }
 
 int Fixed::toInt(void) const {
-    return _value / 256;
+    return _value / pow(2, _fracBits);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
